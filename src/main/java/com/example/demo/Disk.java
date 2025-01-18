@@ -8,6 +8,7 @@ public class Disk {
 
     public int getValue(){
         return this.value;
+        
     }
 
     @Override
