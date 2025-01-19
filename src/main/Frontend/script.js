@@ -1,4 +1,3 @@
-
 async function startGame(){
     const endpoint = "http://localhost:8080/game/start";
     const response = await fetch(endpoint,{method: "POST"})
@@ -6,10 +5,10 @@ async function startGame(){
     console.log(text);
 }
 
-
-const startBtn = document.querySelector(".start");
-
-startBtn.addEventListener("click", () => {
-    console.log('clicked');
-    startGame();
-})
+async function getTowers(){
+    const endpoint = "http://localhost:8080/game/towers";
+    const response = await fetch(endpoint);
+    const object = await response.json();
+    console.log(object)
+    return object;
+}

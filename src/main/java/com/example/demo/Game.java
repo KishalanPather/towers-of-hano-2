@@ -4,12 +4,12 @@ import org.springframework.stereotype.Service;
 
 @Service
 public class Game {
-    private Tower startTower;
-    private Tower auxTower;
-    private Tower endTower;
-    private Functionality functionality;
-    private int numberOfDisks;
-    private boolean running;
+    public Tower startTower;
+    public Tower auxTower;
+    public Tower endTower;
+    public Functionality functionality;
+    public int numberOfDisks;
+    public boolean running;
 
     public Game() {
         // Initialize game variables

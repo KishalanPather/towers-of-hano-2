@@ -25,6 +25,16 @@ public class Controller {
         }
     }
     
+    @GetMapping("/towers")
+    public Tower[] getTowers() {
+        if(game.running){
+            Tower[] towers = {game.startTower,game.auxTower,game.endTower};
+            return towers;
+        }
+        Tower[] towers = {};
+        return towers;
+    }
+    
 
     @GetMapping("/status")
     public String getStatus(){
