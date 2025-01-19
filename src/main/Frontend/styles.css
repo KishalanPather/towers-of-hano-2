@@ -32,15 +32,6 @@ body {
   background-color: #a33d3d;
   border-radius: 5px;
   position: absolute;
-  bottom: 20px; /* Keeps the prong above the base */
-}
-
-.base {
-  width: 100px;
-  height: 20px;
-  background-color: #a33d3d;
-  border-radius: 5px;
-  position: absolute;
   bottom: 0;
 }
 
@@ -49,10 +40,10 @@ body {
   flex-direction: column-reverse; /* Ensures disks are stacked from the bottom */
   align-items: center;
   position: absolute;
-  bottom: 40px; /* Adjusted to sit fully above the base */
+  bottom: 0; /* Disks start at the bottom */
   width: 100px;
-  height: 260px; /* Matches the height of the prong above the base */
-  z-index: 1; /* Ensures disks are above the base */
+  height: 300px; /* Matches the height of the prong */
+  z-index: 1; /* Ensures disks are above the prong */
 }
 
 .disk {
