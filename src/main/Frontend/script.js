@@ -1,5 +1,6 @@
 const endpoint = "http://localhost:8080/game/start";
 
+//API functions
 async function startGame(){
     try{
         const response = await fetch(endpoint,{method: "POST"})
@@ -14,7 +15,7 @@ async function getTowers(){
     try{
         const response = await fetch(endpoint);
         const object = await response.json();
-        console.log(object)
+        console.log(object);
         return object;
     } catch(err){
         console.log("Could not get towers. Error msg: ", err);
@@ -23,14 +24,21 @@ async function getTowers(){
 
 
 async function moveDisk(move){
-    const response = await fetch(endpoint,{
-        method: 'POST',
-        body: JSON.stringify(move)
-    })
+    try{
+        const response = await fetch(endpoint,{
+            method: 'POST',
+            body: JSON.stringify(move)
+        })
+    } catch(err){
+        console.log("Could not move disks. Error msg: ", err);
+    }
+    
 }
 
 
 
+
+//frontend functions
 function renderTowers(towerData) {
     const towerContainer = document.getElementById('towerContainer');
 
