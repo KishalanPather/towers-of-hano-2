@@ -5,6 +5,16 @@ const moveBtn = document.querySelector('.move')
 //towers
 let towers = []
 
+window.addEventListener('load',async () => {
+  try{
+    towers = await getTowers();
+    if(towers){
+    renderTowers(towers);
+  }
+  }catch(err){
+    console.log("towers couldn't be fetched on load. server not online? Error msg: ", err)
+  }
+})
 
 startBtn.addEventListener('click', async () => {
   await startGame();
@@ -15,7 +25,7 @@ startBtn.addEventListener('click', async () => {
 })
 
 moveBtn.addEventListener('click',() => {
-  moveDisk()
+  moveDisk("12");
 } )
 
 

@@ -25,11 +25,15 @@ async function getTowers(){
 
 async function moveDisk(move){
     try{
-        fetch(endpoint,{
+        fetch(`${endpoint}/move`,{
             method: 'POST',
-            body: JSON.stringify(move)
+            body: JSON.stringify("12")
         })
-        .then(() => console.log("Disk moved!"))
+        .then((res) => {
+            if(res.ok){
+                console.log("Disk moved!");
+            }
+        })
 
     } catch(err){
         console.log("Could not move disks. Error msg: ", err);
