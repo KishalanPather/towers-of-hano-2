@@ -4,15 +4,6 @@ const startBtn = document.querySelector(".start");
 //towers
 let towers = []
 
-//start game 
-//startBtn.addEventListener("click", () => {
-//    startGame()
-//    .then(async () => {
-//        towers = await getTowers();
-//        renderTowers(towers);
-//    
-//    });
-//})
 
 startBtn.addEventListener("click", async () => {
   await startGame();

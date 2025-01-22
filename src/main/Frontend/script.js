@@ -23,9 +23,7 @@ function renderTowers(towerData) {
       const prongElement = document.createElement('div');
       prongElement.classList.add('prong');
 
-      const baseElement = document.createElement('div');
-      baseElement.classList.add('base');
-
+      
       towerElement.appendChild(prongElement);
 
       // Add disks to the tower
@@ -37,7 +35,6 @@ function renderTowers(towerData) {
         towerElement.appendChild(diskElement);
       });
 
-      towerElement.appendChild(baseElement);
       towerContainer.appendChild(towerElement);
     });
   }
