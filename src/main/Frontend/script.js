@@ -1,17 +1,35 @@
+const endpoint = "http://localhost:8080/game/start";
+
 async function startGame(){
-    const endpoint = "http://localhost:8080/game/start";
-    const response = await fetch(endpoint,{method: "POST"})
-    const text = await response.text();
-    console.log(text);
+    try{
+        const response = await fetch(endpoint,{method: "POST"})
+        const text = await response.text();
+        console.log(text);
+    } catch(err){
+        console.log("Could not start game. Error msg: ", err);
+    }
 }
 
 async function getTowers(){
-    const endpoint = "http://localhost:8080/game/towers";
-    const response = await fetch(endpoint);
-    const object = await response.json();
-    console.log(object)
-    return object;
+    try{
+        const response = await fetch(endpoint);
+        const object = await response.json();
+        console.log(object)
+        return object;
+    } catch(err){
+        console.log("Could not get towers. Error msg: ", err);
+    }
 }
+
+
+async function moveDisk(move){
+    const response = await fetch(endpoint,{
+        method: 'POST',
+        body: JSON.stringify(move)
+    })
+}
+
+
 
 function renderTowers(towerData) {
     const towerContainer = document.getElementById('towerContainer');
