@@ -12,3 +12,32 @@ async function getTowers(){
     console.log(object)
     return object;
 }
+
+function renderTowers(towerData) {
+    const towerContainer = document.getElementById('towerContainer');
+
+    towerData.forEach(tower => {
+      const towerElement = document.createElement('div');
+      towerElement.classList.add('tower');
+
+      const prongElement = document.createElement('div');
+      prongElement.classList.add('prong');
+
+      const baseElement = document.createElement('div');
+      baseElement.classList.add('base');
+
+      towerElement.appendChild(prongElement);
+
+      // Add disks to the tower
+      tower.stack.reverse().forEach(disk => {
+        const diskElement = document.createElement('div');
+        diskElement.classList.add('disk');
+        diskElement.setAttribute('data-value', disk.value);
+        diskElement.textContent = disk.value;
+        towerElement.appendChild(diskElement);
+      });
+
+      towerElement.appendChild(baseElement);
+      towerContainer.appendChild(towerElement);
+    });
+  }
