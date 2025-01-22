@@ -1,9 +1,9 @@
-const endpoint = "http://localhost:8080/game/start";
+const endpoint = "http://localhost:8080/game";
 
 //API functions
 async function startGame(){
     try{
-        const response = await fetch(endpoint,{method: "POST"})
+        const response = await fetch(`${endpoint}/start`,{method: "POST"})
         const text = await response.text();
         console.log(text);
     } catch(err){
@@ -13,29 +13,29 @@ async function startGame(){
 
 async function getTowers(){
     try{
-        const response = await fetch(endpoint);
+        const response = await fetch(`${endpoint}/towers`);
         const object = await response.json();
         console.log(object);
         return object;
     } catch(err){
         console.log("Could not get towers. Error msg: ", err);
     }
+    
 }
-
 
 async function moveDisk(move){
     try{
-        const response = await fetch(endpoint,{
+        fetch(endpoint,{
             method: 'POST',
             body: JSON.stringify(move)
         })
+        .then(() => console.log("Disk moved!"))
+
     } catch(err){
         console.log("Could not move disks. Error msg: ", err);
     }
     
 }
-
-
 
 
 //frontend functions

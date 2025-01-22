@@ -6,13 +6,17 @@ const moveBtn = document.querySelector('.move')
 let towers = []
 
 
-startBtn.addEventListener("click", async () => {
+startBtn.addEventListener('click', async () => {
   await startGame();
   towers = await getTowers();
   renderTowers(towers);
   
   
 })
+
+moveBtn.addEventListener('click',() => {
+  moveDisk()
+} )
 
 
 
