@@ -1,6 +1,6 @@
 //DOM elements 
 const startBtn = document.querySelector('.start');
-const moveBtn = document.querySelector('.move')
+const moveBtn = document.querySelector('.LM')
 
 //towers
 let towers = []
