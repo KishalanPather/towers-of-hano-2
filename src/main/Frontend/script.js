@@ -27,7 +27,11 @@ async function moveDisk(move){
     try{
         fetch(`${endpoint}/move`,{
             method: 'POST',
-            body: JSON.stringify("12")
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json'
+            },
+            body: JSON.stringify({"move": move})
         })
         .then((res) => {
             if(res.ok){
