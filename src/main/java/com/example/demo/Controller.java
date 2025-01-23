@@ -3,9 +3,12 @@ package com.example.demo;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
+
+import com.fasterxml.jackson.databind.JsonNode;
 
 
 @RestController
@@ -42,7 +45,9 @@ public class Controller {
     }
 
     @PostMapping("/move")
-    public String makeMove(@RequestParam String move) {
+    public String makeMove(@RequestBody JsonNode requestData) {
+        String move = requestData.get("move").asText();
+        System.out.println(move);
         return game.makeMove(move);
     }
 }
