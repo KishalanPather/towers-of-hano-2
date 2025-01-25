@@ -1,11 +1,12 @@
 //DOM elements 
 const startBtn = document.querySelector('.start');
+const moveBtns = document.querySelector('.moveBtns');
 const moveBtn = document.querySelector('.LM')
 
 //towers
 let towers = []
 
-window.addEventListener('load',async () => {
+window.addEventListener('load', async () => {
   try{
     towers = await getTowers();
     if(towers){
@@ -24,9 +25,44 @@ startBtn.addEventListener('click', async () => {
   
 })
 
-moveBtn.addEventListener('click',() => {
-  moveDisk("12");
-} )
+moveBtns.addEventListener('click', async (e) => {
+  let move;
+  if(e.target.matches('.LM')){
+    console.log('12');
+    move = '12';
+  } else if(e.target.matches('.LR')){
+    console.log('13');
+    move  = "13"
+  }else if(e.target.matches('.ML')){
+    console.log('21');
+    move  = "21";
+  }else if(e.target.matches('.MR')){
+    console.log('23');
+    move  = "23";
+  }else if(e.target.matches('.RL')){
+    console.log('31');
+    move  = "31";
+  }else if(e.target.matches('.RM')){
+    console.log('32');
+    move  = "32";
+  }
+
+  await moveDisk(move);
+  console.log("TIMEOUT");
+  towers = await getTowers();
+  renderTowers(towers);
+
+  //setTimeout(async () => {
+  //   towers = await getTowers();
+  //   console.log("TIMEOUT");
+  //   renderTowers(towers);
+  //
+  //},"3000");
+});
+
+//moveBtn.addEventListener('click',() => {
+//  moveDisk("12");
+//} )
 
 
 
