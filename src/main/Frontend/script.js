@@ -24,32 +24,33 @@ async function getTowers(){
 }
 
 async function moveDisk(move){
-    try{
-        fetch(`${endpoint}/move`,{
-            method: 'POST',
-            headers: {
-                'Content-type': 'application/json',
-                'Accept': 'application/json'
-            },
-            body: JSON.stringify({"move": move})
-        })
-        .then((res) => {
-            if(res.ok){
-                console.log("Disk moved!");
-            }
-        })
-
-    } catch(err){
-        console.log("Could not move disks. Error msg: ", err);
-    }
+    try {
+        const response = await fetch(`${endpoint}/move`, {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+            'Accept': 'application/json',
+          },
+          body: JSON.stringify({"move": move}),
+        });
     
+        if (response.ok) {
+          console.log("Disk moved!");
+        } else {
+          console.error("Failed to move disk. Status:", response.status);
+          throw new Error(`Move failed with status ${response.status}`);
+        }
+      } catch (err) {
+        console.error("Could not move disk. Error:", err);
+        throw err; // Re-throw error so the caller can handle it
+      }
 }
 
 
 //frontend functions
 function renderTowers(towerData) {
     const towerContainer = document.getElementById('towerContainer');
-
+    towerContainer.innerHTML = "";
     towerData.forEach(tower => {
       const towerElement = document.createElement('div');
       towerElement.classList.add('tower');
