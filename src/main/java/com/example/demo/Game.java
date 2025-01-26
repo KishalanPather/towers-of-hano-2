@@ -10,6 +10,7 @@ public class Game {
     public Functionality functionality;
     public int numberOfDisks;
     public boolean running;
+    public int counter = 0;
 
     public Game() {
         // Initialize game variables
@@ -43,41 +44,53 @@ public class Game {
         this.running = false;
     }
 
-    public synchronized String makeMove(String move) {
+    public synchronized Response makeMove(String move) {
+        Response response;
+
         if (!running) {
-            return "Game is not running. Please start the game first.";
+            System.out.println("Game is not running. Please start the game first.");
         }
 
+        //first assign if it was a valid move to response
         switch (move) {
             case "12":
-                functionality.moveDisk(startTower, auxTower);
-                //return "Moved from start to aux";
+                response = functionality.moveDisk(startTower, auxTower);
                 break;
             case "23":
-                functionality.moveDisk(auxTower, endTower);
+                response = functionality.moveDisk(auxTower, endTower);
                 break;
             case "13":
-                functionality.moveDisk(startTower, endTower);
+                response = functionality.moveDisk(startTower, endTower);
                 break;
             case "31":
-                functionality.moveDisk(endTower, startTower);
+                response = functionality.moveDisk(endTower, startTower);
                 break;
             case "32":
-                functionality.moveDisk(endTower, auxTower);
+                response = functionality.moveDisk(endTower, auxTower);
                 break;
             case "21":
-                functionality.moveDisk(auxTower, startTower);
+                response = functionality.moveDisk(auxTower, startTower);
                 break;
             default:
-                return "Invalid move. Use moves like '12', '13', etc.";
+                response = new Response(false,false,0);
+                return response;
         }
 
+        //then assign if the game was completed in response
         if (functionality.checkCompleted(endTower, numberOfDisks)) {
             this.running = false;
-            return "Congratulations! You completed the game.";
+            response.gameCompleted = true;
+            System.out.println("Congratulations! You completed the game.");
+        } else{
+            response.gameCompleted = false;
         }
 
-        return getGameState();
+        //finally assign the counter to response
+        if(response.validMove){
+            counter++;
+        }
+        response.counter = counter;
+        return response;
     }
 
     public synchronized String getGameState() {

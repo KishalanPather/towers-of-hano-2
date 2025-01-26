@@ -3,14 +3,19 @@ package com.example.demo;
 public  class Functionality {
     public Functionality(){}
 
-    public void moveDisk(Tower startTower, Tower endTower){
+    public Response moveDisk(Tower startTower, Tower endTower){
        Disk disk = startTower.getStack().getLast(); //store last disk
+       Response response;
 
        if(checkValidMove(disk, endTower)){  
         startTower.removeFromStack();                //remove from start tower
         endTower.addToStack(disk);                  //place on endtower
+        response = new Response(true);
+        return response;
        } else{
         System.out.println("Invalid move: cannot put a bigger disk on top of a smaller disk.");
+         response = new Response(false);
+         return response;
        }
 
     }

@@ -49,12 +49,12 @@ public class Controller {
     @PostMapping("/move")
     public ResponseEntity<JsonNode> makeMove(@RequestBody JsonNode requestData) {
         String move = requestData.get("move").asText();
-        String x = game.makeMove(move);
+        Response response = game.makeMove(move);
         
         ObjectMapper objectMapper = new ObjectMapper();
-        JsonNode response = objectMapper.createObjectNode()
-	        .put("message", x);
+        JsonNode message = objectMapper.createObjectNode()
+	        .set("message", objectMapper.valueToTree(response));
 	        
-	        return ResponseEntity.ok(response);
+	        return ResponseEntity.ok(message);
     }
 }
