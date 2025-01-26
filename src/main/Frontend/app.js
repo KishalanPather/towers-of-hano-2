@@ -47,7 +47,8 @@ moveBtns.addEventListener('click', async (e) => {
     move  = "32";
   }
 
-  await moveDisk(move);
+  const x = await moveDisk(move);
+  console.log("this is what is returns", x)
   console.log("TIMEOUT");
   towers = await getTowers();
   renderTowers(towers);

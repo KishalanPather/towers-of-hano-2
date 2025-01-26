@@ -3,7 +3,7 @@ package com.example.demo;
 public  class Functionality {
     public Functionality(){}
 
-    public  void moveDisk(Tower startTower, Tower endTower){
+    public void moveDisk(Tower startTower, Tower endTower){
        Disk disk = startTower.getStack().getLast(); //store last disk
 
        if(checkValidMove(disk, endTower)){  
