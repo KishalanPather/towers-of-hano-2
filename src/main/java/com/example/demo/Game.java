@@ -85,11 +85,11 @@ public class Game {
             response.gameCompleted = false;
         }
 
-        //finally assign the counter to response
+        // check if we can increment the counter to response
         if(response.validMove){
             counter++;
         }
-        response.counter = counter;
+        response.counter = counter; //finally, assign the counter to response
         return response;
     }
 

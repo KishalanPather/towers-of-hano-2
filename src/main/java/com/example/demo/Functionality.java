@@ -10,11 +10,11 @@ public  class Functionality {
        if(checkValidMove(disk, endTower)){  
         startTower.removeFromStack();                //remove from start tower
         endTower.addToStack(disk);                  //place on endtower
-        response = new Response(true);
+        response = new Response(true);              //sets valid move in response to true
         return response;
        } else{
         System.out.println("Invalid move: cannot put a bigger disk on top of a smaller disk.");
-         response = new Response(false);
+         response = new Response(false);            //sets valid move in response to false
          return response;
        }
 
