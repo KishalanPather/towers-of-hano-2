@@ -114,3 +114,9 @@ button.start:hover {
 button.start:active {
   transform: translateY(0);
 }
+
+
+
+.moveBtns{
+  display: none;
+}
