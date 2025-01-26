@@ -24,7 +24,8 @@ public class Game {
 
     public synchronized void startGame() {
         if (running) {
-            throw new IllegalStateException("Game is already running!");
+            running = false;
+            counter = 0;
         }
         // Reset towers and initialize the game
         this.startTower = new Tower(0);

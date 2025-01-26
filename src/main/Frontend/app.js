@@ -6,21 +6,12 @@ const counter = document.querySelector('.counter');
 //towers
 let towers = []
 
-window.addEventListener('load', async () => {
-  try{
-    towers = await getTowers();
-    if(towers){
-    renderTowers(towers);
-  }
-  }catch(err){
-    console.log("towers couldn't be fetched on load. server not online? Error msg: ", err)
-  }
-})
 
 startBtn.addEventListener('click', async () => {
   await startGame();
   towers = await getTowers();
   renderTowers(towers);
+  moveBtns.style.display = "block";
   
   
 })
