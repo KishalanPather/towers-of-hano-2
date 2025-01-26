@@ -1,5 +1,7 @@
 package com.example.demo;
 
+import lombok.val;
+
 //for the makeMove class to send Json data to the frontend
 public class Response {
     public boolean validMove;
@@ -9,7 +11,7 @@ public class Response {
     public Response(){}
 
     public Response(boolean validMove){
-        this.validMove = true;
+        this.validMove = validMove;
     }
     
     public Response(boolean validMove, boolean gameCompleted, int counter){

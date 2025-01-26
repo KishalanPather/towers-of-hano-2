@@ -1,7 +1,7 @@
 //DOM elements 
 const startBtn = document.querySelector('.start');
 const moveBtns = document.querySelector('.moveBtns');
-const moveBtn = document.querySelector('.LM')
+const counter = document.querySelector('.counter');
 
 //towers
 let towers = []
@@ -27,6 +27,7 @@ startBtn.addEventListener('click', async () => {
 
 moveBtns.addEventListener('click', async (e) => {
   let move;
+  //determine which towers the user wants to move disks to and from
   if(e.target.matches('.LM')){
     console.log('12');
     move = '12';
@@ -47,23 +48,18 @@ moveBtns.addEventListener('click', async (e) => {
     move  = "32";
   }
 
-  const x = await moveDisk(move);
-  console.log("this is what is returns", x)
-  console.log("TIMEOUT");
+  //make the move
+  const response = await moveDisk(move);
+  console.log("this is what is returns", response)
   towers = await getTowers();
-  renderTowers(towers);
+  
+  //update UI
+  renderTowers(towers); 
+  counter.innerHTML = `Counter ${response.message.counter}`;
+  if (!response.message.validMove) alert("Invalid move: cannot put a bigger disk on top of a smaller disk.");
+  if (response.message.gameCompleted) alert("Congratulations! You completed the game.")
 
-  //setTimeout(async () => {
-  //   towers = await getTowers();
-  //   console.log("TIMEOUT");
-  //   renderTowers(towers);
-  //
-  //},"3000");
 });
-
-//moveBtn.addEventListener('click',() => {
-//  moveDisk("12");
-//} )
 
 
 
