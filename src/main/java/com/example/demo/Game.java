@@ -48,16 +48,11 @@ public class Game {
             return "Game is not running. Please start the game first.";
         }
 
-        //if(move.equals("12")){
-        //    functionality.moveDisk(startTower, auxTower);
-        //    return "fucker, it moved";
-        //}
-
         switch (move) {
             case "12":
                 functionality.moveDisk(startTower, auxTower);
-                return "Moved from start to aux";
-                //break;
+                //return "Moved from start to aux";
+                break;
             case "23":
                 functionality.moveDisk(auxTower, endTower);
                 break;

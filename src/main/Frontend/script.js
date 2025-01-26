@@ -36,7 +36,7 @@ async function moveDisk(move){
     
         if (response.ok) {
           console.log("Disk moved!");
-          return response;
+          return response.json();
         } else {
           console.error("Failed to move disk. Status:", response.status);
           throw new Error(`Move failed with status ${response.status}`);

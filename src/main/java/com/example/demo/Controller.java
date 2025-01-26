@@ -1,5 +1,6 @@
 package com.example.demo;
 
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -9,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
 
 
 @RestController
@@ -45,9 +47,14 @@ public class Controller {
     }
 
     @PostMapping("/move")
-    public String makeMove(@RequestBody JsonNode requestData) {
+    public ResponseEntity<JsonNode> makeMove(@RequestBody JsonNode requestData) {
         String move = requestData.get("move").asText();
-        System.out.println(move);
-        return game.makeMove(move);
+        String x = game.makeMove(move);
+        
+        ObjectMapper objectMapper = new ObjectMapper();
+        JsonNode response = objectMapper.createObjectNode()
+	        .put("message", x);
+	        
+	        return ResponseEntity.ok(response);
     }
 }
