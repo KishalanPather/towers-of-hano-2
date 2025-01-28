@@ -81,6 +81,7 @@ public class Game {
         if (functionality.checkCompleted(endTower, numberOfDisks)) {
             this.running = false;
             response.gameCompleted = true;
+            counter = 0;
             System.out.println("Congratulations! You completed the game.");
         } else{
             response.gameCompleted = false;
