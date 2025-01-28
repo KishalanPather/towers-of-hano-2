@@ -116,7 +116,7 @@ button.start:active {
 }
 
 
-
+/*not displayed on start. only displayed when the game starts*/
 .moveBtns{
   display: none;
 }

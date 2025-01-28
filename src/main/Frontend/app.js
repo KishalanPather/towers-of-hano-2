@@ -2,6 +2,7 @@
 const startBtn = document.querySelector('.start');
 const moveBtns = document.querySelector('.moveBtns');
 const counter = document.querySelector('.counter');
+const solveBtn = document.querySelector('.solve');
 
 //towers
 let towers = []
@@ -12,6 +13,7 @@ startBtn.addEventListener('click', async () => {
   towers = await getTowers();
   renderTowers(towers);
   moveBtns.style.display = "block";
+  counter.innerHTML = "Counter: 0"
   
   
 })
@@ -20,38 +22,28 @@ moveBtns.addEventListener('click', async (e) => {
   let move;
   //determine which towers the user wants to move disks to and from
   if(e.target.matches('.LM')){
-    console.log('12');
-    move = '12';
+    move = '12';      //1 = left, 2 = middle, 3 = right
   } else if(e.target.matches('.LR')){
-    console.log('13');
     move  = "13"
   }else if(e.target.matches('.ML')){
-    console.log('21');
     move  = "21";
   }else if(e.target.matches('.MR')){
-    console.log('23');
     move  = "23";
   }else if(e.target.matches('.RL')){
-    console.log('31');
     move  = "31";
   }else if(e.target.matches('.RM')){
-    console.log('32');
     move  = "32";
   }
 
   //make the move
-  const response = await moveDisk(move);
-  console.log("this is what is returns", response)
-  towers = await getTowers();
-  
-  //update UI
-  renderTowers(towers); 
-  counter.innerHTML = `Counter ${response.message.counter}`;
-  if (!response.message.validMove) alert("Invalid move: cannot put a bigger disk on top of a smaller disk.");
-  if (response.message.gameCompleted) alert("Congratulations! You completed the game.")
+  makeMove(move);
 
 });
 
+
+solveBtn.addEventListener('click', () => {
+  solve(3,"1","2","3");
+})
 
 
 //const towers = [

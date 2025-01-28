@@ -74,3 +74,36 @@ function renderTowers(towerData) {
       towerContainer.appendChild(towerElement);
     });
   }
+
+
+async function makeMove(move){
+    const response = await moveDisk(move);
+    towers = await getTowers();
+    
+    //update UI
+    renderTowers(towers); 
+    counter.innerHTML = `Counter: ${response.message.counter}`;
+    if (!response.message.validMove) alert("Invalid move: cannot put a bigger disk on top of a smaller disk.");
+    if (response.message.gameCompleted) alert("Congratulations! You completed the game.");
+}
+
+//function that pauses execution for some time
+function sleep(ms){
+    return new Promise(resolve => setTimeout(resolve,ms));
+} 
+
+
+//recursive solving function
+async function solve(n,start,aux,end){
+    if(n == 1){
+        await makeMove(`${start}${end}`);
+        await sleep(1000);      //pause to show the steps
+        return "";              //stop execution
+    }
+    await solve(n-1,start,end,aux);
+    await makeMove(`${start}${end}`);
+    await sleep(1000);
+
+    await solve(n-1,aux,start,end);
+
+}

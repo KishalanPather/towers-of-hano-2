@@ -18,7 +18,7 @@ public class Game {
         this.auxTower = new Tower(1);
         this.endTower = new Tower(2);
         this.functionality = new Functionality();
-        this.numberOfDisks = 3; // Default number of disks
+        this.numberOfDisks = 5; // Default number of disks
         this.running = false;
     }
 
@@ -77,19 +77,19 @@ public class Game {
                 return response;
         }
 
+        // check if we can increment the counter to response
+        if(response.validMove){
+            counter++;
+        }
+
         //then assign if the game was completed in response
         if (functionality.checkCompleted(endTower, numberOfDisks)) {
-            this.running = false;
             response.gameCompleted = true;
             System.out.println("Congratulations! You completed the game.");
         } else{
             response.gameCompleted = false;
         }
 
-        // check if we can increment the counter to response
-        if(response.validMove){
-            counter++;
-        }
         response.counter = counter; //finally, assign the counter to response
         return response;
     }
