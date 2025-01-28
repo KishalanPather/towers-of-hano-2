@@ -34,15 +34,7 @@ moveBtns.addEventListener('click', async (e) => {
   }
 
   //make the move
-  const response = await moveDisk(move);
-  console.log("this is what is returns", response)
-  towers = await getTowers();
-  
-  //update UI
-  renderTowers(towers); 
-  counter.innerHTML = `Counter ${response.message.counter}`;
-  if (!response.message.validMove) alert("Invalid move: cannot put a bigger disk on top of a smaller disk.");
-  if (response.message.gameCompleted) alert("Congratulations! You completed the game.")
+  makeMove(move);
 
 });
 

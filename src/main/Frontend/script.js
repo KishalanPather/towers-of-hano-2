@@ -74,3 +74,15 @@ function renderTowers(towerData) {
       towerContainer.appendChild(towerElement);
     });
   }
+
+
+  async function makeMove(move){
+    const response = await moveDisk(move);
+    towers = await getTowers();
+    
+    //update UI
+    renderTowers(towers); 
+    counter.innerHTML = `Counter ${response.message.counter}`;
+    if (!response.message.validMove) alert("Invalid move: cannot put a bigger disk on top of a smaller disk.");
+    if (response.message.gameCompleted) alert("Congratulations! You completed the game.");
+}
