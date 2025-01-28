@@ -20,22 +20,16 @@ moveBtns.addEventListener('click', async (e) => {
   let move;
   //determine which towers the user wants to move disks to and from
   if(e.target.matches('.LM')){
-    console.log('12');
-    move = '12';
+    move = '12';      //1 = left, 2 = middle, 3 = right
   } else if(e.target.matches('.LR')){
-    console.log('13');
     move  = "13"
   }else if(e.target.matches('.ML')){
-    console.log('21');
     move  = "21";
   }else if(e.target.matches('.MR')){
-    console.log('23');
     move  = "23";
   }else if(e.target.matches('.RL')){
-    console.log('31');
     move  = "31";
   }else if(e.target.matches('.RM')){
-    console.log('32');
     move  = "32";
   }
 
