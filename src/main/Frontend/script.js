@@ -76,7 +76,7 @@ function renderTowers(towerData) {
   }
 
 
-  async function makeMove(move){
+async function makeMove(move){
     const response = await moveDisk(move);
     towers = await getTowers();
     
@@ -93,13 +93,12 @@ function sleep(ms){
 } 
 
 
-
-//recurve solving function
+//recursive solving function
 async function solve(n,start,aux,end){
     if(n == 1){
         await makeMove(`${start}${end}`);
-        await sleep(1000);
-        return "";
+        await sleep(1000);      //pause to show the steps
+        return "";              //stop execution
     }
     await solve(n-1,start,end,aux);
     await makeMove(`${start}${end}`);
