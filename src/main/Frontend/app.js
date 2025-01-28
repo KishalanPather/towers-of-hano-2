@@ -2,6 +2,7 @@
 const startBtn = document.querySelector('.start');
 const moveBtns = document.querySelector('.moveBtns');
 const counter = document.querySelector('.counter');
+const solveBtn = document.querySelector('.solve');
 
 //towers
 let towers = []
@@ -12,6 +13,7 @@ startBtn.addEventListener('click', async () => {
   towers = await getTowers();
   renderTowers(towers);
   moveBtns.style.display = "block";
+  counter.innerHTML = "Counter: 0"
   
   
 })
@@ -38,6 +40,10 @@ moveBtns.addEventListener('click', async (e) => {
 
 });
 
+
+solveBtn.addEventListener('click', () => {
+  solve(3,"1","2","3");
+})
 
 
 //const towers = [
