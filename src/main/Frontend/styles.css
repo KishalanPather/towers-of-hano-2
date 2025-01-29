@@ -14,6 +14,8 @@ h1 {
   font-size: 2rem;
   color: #444;
   margin-bottom: 20px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
 }
 
 .tower-container {
@@ -24,10 +26,10 @@ h1 {
   max-width: 1200px;
   height: 400px;
   padding: 20px;
-  border: 2px solid #ddd;
-  border-radius: 10px;
+  border: 2px solid #ccc;
+  border-radius: 12px;
   background: linear-gradient(145deg, #f3f6f9, #e9ecef);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
 }
 
 .tower {
@@ -39,13 +41,13 @@ h1 {
 }
 
 .prong {
-  width: 12px;
+  width: 14px;
   height: 300px;
-  background-color: #ba4a4a;
-  border-radius: 6px;
+  background-color: #b04040;
+  border-radius: 8px;
   position: absolute;
   bottom: 0;
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.2);
+  box-shadow: inset 0 3px 6px rgba(0, 0, 0, 0.2);
 }
 
 .disk-container {
@@ -57,66 +59,88 @@ h1 {
   width: 100px;
   height: 300px;
   z-index: 1;
+  justify-content: flex-end;
 }
 
 .disk {
-  height: 20px;
-  margin-bottom: 4px;
-  border-radius: 10px;
+  height: 22px;
+  margin-bottom: 3px;
+  border-radius: 12px;
   text-align: center;
-  line-height: 20px;
+  line-height: 22px;
   font-size: 0.9rem;
   font-weight: bold;
   color: #333;
   border: 1px solid rgba(0, 0, 0, 0.1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 3px 5px rgba(0, 0, 0, 0.1);
   transition: transform 0.2s ease, background-color 0.2s ease;
 }
 
 .disk:hover {
-  transform: scale(1.05);
+  transform: scale(1.08);
 }
 
-.disk[data-value="1"] {
-  width: 40px;
-  background-color: #a9f0c2;
-}
+.disk[data-value="1"] { width: 30px; background-color: #a9f0c2; }
+.disk[data-value="2"] { width: 40px; background-color: #90ee90; }
+.disk[data-value="3"] { width: 50px; background-color: #c9c2f0; }
+.disk[data-value="4"] { width: 60px; background-color: #ffcccb; }
+.disk[data-value="5"] { width: 70px; background-color: #ffeb99; }
+.disk[data-value="6"] { width: 80px; background-color: #b0e0e6; }
+.disk[data-value="7"] { width: 90px; background-color: #dda0dd; }
+.disk[data-value="8"] { width: 100px; background-color: #87ceeb; }
+.disk[data-value="9"] { width: 110px; background-color: #ffb6c1; }
+.disk[data-value="10"] { width: 120px; background-color: #f1f7b5; }
 
-.disk[data-value="2"] {
-  width: 60px;
-  background-color: #90ee90;
-}
-
-.disk[data-value="3"] {
-  width: 80px;
-  background-color: #c9c2f0;
-}
-
-button.start {
+button.start, button.solve {
   margin-top: 20px;
-  padding: 10px 20px;
+  padding: 12px 24px;
   font-size: 1rem;
   font-weight: bold;
   color: #fff;
   background-color: #6c63ff;
   border: none;
-  border-radius: 5px;
+  border-radius: 6px;
   cursor: pointer;
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 5px 8px rgba(0, 0, 0, 0.15);
   transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
-button.start:hover {
+button.start:hover, button.solve:hover {
   background-color: #5a53e0;
-  transform: translateY(-2px);
+  transform: translateY(-3px);
 }
 
-button.start:active {
+button.start:active, button.solve:active {
   transform: translateY(0);
 }
 
-
-/*not displayed on start. only displayed when the game starts*/
-.moveBtns{
+.moveBtns {
   display: none;
+  margin-top: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  justify-content: center;
+}
+
+.move {
+  padding: 8px 16px;
+  font-size: 0.9rem;
+  font-weight: bold;
+  color: #fff;
+  background-color: #555;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.move:hover {
+  background-color: #444;
+  transform: translateY(-2px);
+}
+
+.move:active {
+  transform: translateY(0);
 }

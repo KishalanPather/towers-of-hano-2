@@ -42,7 +42,7 @@ moveBtns.addEventListener('click', async (e) => {
 
 
 solveBtn.addEventListener('click', () => {
-  solve(3,"1","2","3");
+  solve(10,"1","2","3");
 })
 
 
@@ -50,6 +50,13 @@ solveBtn.addEventListener('click', () => {
 //    {
 //      towerNumber: 0,
 //      stack: [
+//        { value: 10 },
+//        { value: 9 },
+//        { value: 8 },
+//        { value: 7 },
+//        { value: 6 },
+//        { value: 5 },
+//        { value: 4 },
 //        { value: 3 },
 //        { value: 2 },
 //        { value: 1 },
@@ -61,8 +68,6 @@ solveBtn.addEventListener('click', () => {
 //    },
 //    {
 //      towerNumber: 2,
-//      stack: [
-//        {value: 3},
-//      ],
+//      stack: [],
 //    },
 //  ];

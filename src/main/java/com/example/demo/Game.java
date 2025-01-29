@@ -18,7 +18,7 @@ public class Game {
         this.auxTower = new Tower(1);
         this.endTower = new Tower(2);
         this.functionality = new Functionality();
-        this.numberOfDisks = 5; // Default number of disks
+        this.numberOfDisks = 10; // Default number of disks
         this.running = false;
     }
 
