@@ -49,28 +49,3 @@ solveBtn.addEventListener('click', () => {
 })
 
 
-//const towers = [
-//    {
-//      towerNumber: 0,
-//      stack: [
-//        { value: 10 },
-//        { value: 9 },
-//        { value: 8 },
-//        { value: 7 },
-//        { value: 6 },
-//        { value: 5 },
-//        { value: 4 },
-//        { value: 3 },
-//        { value: 2 },
-//        { value: 1 },
-//      ],
-//    },
-//    {
-//      towerNumber: 1,
-//      stack: [],
-//    },
-//    {
-//      towerNumber: 2,
-//      stack: [],
-//    },
-//  ];
