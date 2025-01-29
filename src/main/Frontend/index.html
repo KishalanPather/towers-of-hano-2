@@ -1,32 +1,35 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-    <h1>Towers of Hanoi</h1>
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+        <link rel="stylesheet" href="styles.css">
+    </head>
+    <body>
+        <h1>Towers of Hanoi</h1>
 
-    <p1 class="counter">Counter: 0</p1>
-    <div class="tower-container" id="towerContainer">
-        <!--injected with renderTowers()-->
-    </div>
-    <button class="start">start</button>
-    <button class="solve">solve</button>
-    <div class="moveBtns">
-         <button class="move LM">move from left to middle</button>
-         <button class="move LR">move from left to right</button>
-         <button class="move ML">move from middle to left</button>
-         <button class="move MR">move from middle to right</button>
-         <button class="move RL">move from right to left</button>
-         <button class="move RM">move from right to middle</button>
+        <label for="diskCount">Select number of disks:</label>
+        <input type="number" id="diskCount" min="1" max="10" value="1">
+        <p1 class="counter">Counter: 0</p1>
+        
+        <div class="tower-container" id="towerContainer">
+            <!--injected with renderTowers()-->
+        </div>
+        <button class="start">start</button>
+        <button class="solve">solve</button>
+        <div class="moveBtns">
+            <button class="move LM">move from left to middle</button>
+            <button class="move LR">move from left to right</button>
+            <button class="move ML">move from middle to left</button>
+            <button class="move MR">move from middle to right</button>
+            <button class="move RL">move from right to left</button>
+            <button class="move RM">move from right to middle</button>
 
-    </div>
+        </div>
 
 
-    <script src="script.js"></script>
-    <script src="app.js"></script>
-</body>
-</html>
+        <script src="script.js"></script>
+        <script src="app.js"></script>
+    </body>
+    </html>

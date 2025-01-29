@@ -1,9 +1,17 @@
 const endpoint = "http://localhost:8080/game";
 
 //API functions
-async function startGame(){
+async function startGame(disks){
     try{
-        const response = await fetch(`${endpoint}/start`,{method: "POST"})
+        const response = await fetch(`${endpoint}/start`,{
+            method: "POST",
+            headers: {
+                'Content-type': 'application/json',
+                'Accept': 'application/json',
+              },
+              body: JSON.stringify({"disks": disks}),
+        
+        })
         const text = await response.text();
         console.log(text);
     } catch(err){
@@ -75,7 +83,7 @@ function renderTowers(towerData) {
     });
   }
 
-
+//container function for updating UI and moving disks in the backend
 async function makeMove(move){
     const response = await moveDisk(move);
     towers = await getTowers();

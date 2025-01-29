@@ -2,7 +2,7 @@ package com.example.demo;
 
 import lombok.val;
 
-//for the makeMove class to send Json data to the frontend
+//for the makeMove() function in Game.java to send JSON data to the frontend
 public class Response {
     public boolean validMove;
     public boolean gameCompleted;
