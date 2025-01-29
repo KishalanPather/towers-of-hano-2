@@ -6,11 +6,12 @@ const counter = document.querySelector('.counter');
 const solveBtn = document.querySelector('.solve');
 
 //towers
-let towers = []
+let towers = [];
+let numberOfDisks;
 
 
 startBtn.addEventListener('click', async () => {
-  const numberOfDisks = diskCount.value
+  numberOfDisks = diskCount.value;
   await startGame(numberOfDisks);
   towers = await getTowers();
   renderTowers(towers);
@@ -44,7 +45,7 @@ moveBtns.addEventListener('click', async (e) => {
 
 
 solveBtn.addEventListener('click', () => {
-  solve(5,"1","2","3");
+  solve(numberOfDisks,"1","2","3");
 })
 
 
