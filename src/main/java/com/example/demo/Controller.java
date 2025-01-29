@@ -21,8 +21,11 @@ public class Controller {
     private Game game = new Game();
 
     @PostMapping("/start")
-    public String startGame() {
+    public String startGame(@RequestBody JsonNode requestData) {
         try {
+            String disks = requestData.get("disks").asText();
+            int intDisks = Integer.parseInt(disks);
+            game.numberOfDisks = intDisks;
             game.startGame();
             return "Game started successfully!";
         } catch (IllegalStateException e) {

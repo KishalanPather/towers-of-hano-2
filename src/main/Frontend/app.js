@@ -9,7 +9,7 @@ let towers = []
 
 
 startBtn.addEventListener('click', async () => {
-  await startGame();
+  await startGame(3);
   towers = await getTowers();
   renderTowers(towers);
   moveBtns.style.display = "block";
