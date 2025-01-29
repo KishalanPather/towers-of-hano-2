@@ -42,7 +42,7 @@ moveBtns.addEventListener('click', async (e) => {
 
 
 solveBtn.addEventListener('click', () => {
-  solve(10,"1","2","3");
+  solve(5,"1","2","3");
 })
 
 

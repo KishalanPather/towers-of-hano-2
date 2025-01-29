@@ -18,7 +18,7 @@ public class Game {
         this.auxTower = new Tower(1);
         this.endTower = new Tower(2);
         this.functionality = new Functionality();
-        this.numberOfDisks = 10; // Default number of disks
+        this.numberOfDisks = 5; // Default number of disks
         this.running = false;
     }
 
@@ -94,8 +94,5 @@ public class Game {
         return response;
     }
 
-    public synchronized String getGameState() {
-        return String.format("startTower: %s\nauxTower: %s\nendTower: %s",
-                startTower.getStack(), auxTower.getStack(), endTower.getStack());
-    }
+    
 }
