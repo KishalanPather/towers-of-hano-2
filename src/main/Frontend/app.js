@@ -1,4 +1,5 @@
 //DOM elements 
+const diskCount = document.querySelector('#diskCount')
 const startBtn = document.querySelector('.start');
 const moveBtns = document.querySelector('.moveBtns');
 const counter = document.querySelector('.counter');
@@ -9,7 +10,8 @@ let towers = []
 
 
 startBtn.addEventListener('click', async () => {
-  await startGame(3);
+  const numberOfDisks = diskCount.value
+  await startGame(numberOfDisks);
   towers = await getTowers();
   renderTowers(towers);
   moveBtns.style.display = "block";
